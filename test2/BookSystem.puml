@@ -1,0 +1,42 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+actor 读者 as reader
+actor 图书管理员 as bm
+actor 系统管理员 as sm
+rectangle 图书管理系统用例图{
+    bm --> (登录)
+    bm --> (查询个人信息)
+    (查询个人信息) ..> (修改个人信息) :<<include>>
+    bm --> (查询图书)
+    bm --> (添加图书)
+    bm --> (修改图书)
+    bm --> (删除图书)
+    bm --> (还书)
+    bm --> (借书)
+    (借书)<..(允许续借):<<include>>
+
+    reader --> (登录)
+    reader --> (查询个人信息)
+    reader --> (查询图书)
+    reader --> (查询借阅信息)
+    reader --> (预定图书)
+    (预定图书)..>(取消预订):<<include>>
+    reader --> (借书)
+    (借书)<..(续借):<<include>>
+    reader --> (还书)
+
+    (登录) <-- sm
+    (查询个人信息) <-- sm
+    (公告) <-- sm
+    (更新公告) <..(公告) :<<include>>
+    (删除公告) <..(公告) :<<include>>
+    (管理图书管理员信息) <-- sm
+    (增、删、改、查)<.. (管理图书管理员信息) :<<include>>
+    (管理读者信息) <-- sm
+    (增、删、改、查)<.. (管理读者信息) :<<include>>
+    (维护系统) <---- sm
+}
+
+@enduml

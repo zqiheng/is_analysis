@@ -1,0 +1,35 @@
+@startuml
+
+start;
+if(是否登录？) then(是)
+    :查询图书信息;
+    :选择目标图书;
+    fork
+    :点击续借;
+    if(是否已续借一次？) then(是)
+        :提示仅能续借一次;
+        :续借失败;
+    else(否)
+        :续借成功;
+    endif;
+    fork again
+    :点击借阅;
+    if(是否有库存？) then(是)
+        if(是否超出借阅上限？) then(是)
+            :借书失败;
+         else(否)
+            :借书成功;
+        endif;
+    else(否)
+        :提示没有库存;
+        :借书失败;
+    endif;
+    endfork;
+else(否)
+    :提示需要登录后才能借阅;
+    :跳转到登录页面;
+endif;
+:借书（续借）流程结束;
+stop;
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+
+|客户|
+start
+#FF00FF:申请服务;
+|业务经理|
+if(是新客户吗？) then (是)
+#FF00FF:登记客户信息;
+else(不是)
+endif
+#FF00FF:上门斟察;
+#FF00FF:制定方案;
+|客户|
+if(满意吗？) then (否)
+stop
+else(是)
+#FF00FF:签订服务合同;
+|业务经理|
+fork
+#FF00FF:安排员工;
+fork again
+#FF00FF:安排材料;
+end fork
+#FF00FF:填写派工单;
+|工人|
+#FF00FF:领取材料;
+#FF00FF:上门服务;
+|客户|
+#FF00FF:验收并填写反馈意见;
+|业务经理|
+#FF00FF:交回派工单;
+|财务人员|
+#FF00FF:结算收款;
+stop
+
+@enduml

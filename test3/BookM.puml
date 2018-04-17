@@ -1,0 +1,9 @@
+@startuml
+
+object 图书管理员{
+    account = "201512340000"
+    name = "李四"
+    password = "123456"
+}
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+object 登陆{
+    name = name
+    password = password
+    —————————————
+    + void user(name,password)
+    ......
+}
+@enduml

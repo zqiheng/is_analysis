@@ -1,0 +1,40 @@
+@startuml
+
+|教务处|
+:安排考试;
+#FF00FF:考试安排表;
+|教师|
+:出卷;
+split
+#FF00FF:A、B试卷;
+split again
+#FF00FF:打印审批表;
+|系主任|
+:审批签字;
+#FF00FF:打印审批表;
+|教务处|
+end split
+:打印试卷;
+#FF00FF:试卷;
+|学生|
+:参加考试;
+#FF00FF:答卷;
+|教师|
+:阅卷出成绩;
+fork
+#FF00FF:成绩单;
+|教务处|
+if (有不及格？) then (有)
+:安排补考;
+note left
+补考安排表
+end note
+endif
+|教师|
+fork again
+#FF00FF:答卷;
+:装订存档;
+end fork
+#FF00FF:期末流程结束;
+
+@enduml
