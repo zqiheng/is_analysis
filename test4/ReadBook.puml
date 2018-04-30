@@ -1,0 +1,13 @@
+@startuml
+
+actor "读者" as reader
+
+participant "：馆藏目录" as tools
+participant "：图书" as book
+
+reader <- reader: 1. 信息验证
+reader -> tools:  2. 获取馆藏目录
+tools -> book: 2.1 获取图书信息
+reader <-- book: 3. 结果
+
+@enduml

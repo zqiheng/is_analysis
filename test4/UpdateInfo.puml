@@ -1,0 +1,16 @@
+@startuml
+
+actor "读者" as reader
+participant "：信息记录" as re
+participant "：个人信息" as info
+participant "：修改" as update
+
+reader <- reader : 1. 验证可操作性
+reader -> re : 2. 获取信息资源
+re -> info : 3. 获取个人信息
+reader -> update: 4. 修改个人信息
+update --> reader
+
+reader <- reader
+
+@enduml

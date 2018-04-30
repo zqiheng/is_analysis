@@ -1,0 +1,23 @@
+@startuml
+
+actor 读者 as read
+
+participant "：馆藏目录" as tools
+participant "：图书" as book
+participant "：预定记录" as order
+participant "：图书管理员" as bm
+
+read -> read: 1. 验证可预定性
+read -> tools: 2. 获取馆藏目录
+tools -> book: 2.1 查询书籍
+book -> book: 2.2 验证可预定性
+read -> order: 3. 预定图书
+read <-- order
+
+par
+order <- order: 更新记录
+book <- book :更新记录
+book <- bm: 更新记录
+end
+read <- read
+@enduml

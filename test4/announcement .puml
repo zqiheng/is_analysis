@@ -1,0 +1,15 @@
+@startuml
+
+actor "：系统管理员" as bm
+participant "：信息记录" as re
+participant "：公告" as a
+participant "：修改" as update
+
+bm -> bm: 1. 验证可操作性
+bm -> re: 2. 获取资源信息
+re -> a: 2.1 获取公告信息
+bm -> update: 2.1.1. 修改公告信息
+bm <-- update: 结果
+bm <- bm
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+
+actor 图书管理员 as bm
+participant "：馆藏目录" as tools
+participant "：图书" as book
+participant "：读者" as read
+participant "：借书记录" as ji
+participant "：逾期记录" as yu
+
+
+bm -> tools: 1.获取书目
+tools -> book: 1.1 查找书籍
+bm -> read: 2.获取读者信息
+read -> read: 2.2 验证信息
+bm -> ji: 3. 获取借书记录
+bm <- bm: 4. 消除借书记录
+bm -> ji: 5. 登记还书日期
+bm -> book: 6. 增加书籍可借量
+bm -> read: 7. 更新读者信息
+opt 【逾期】
+bm -> yu: 8. 登记逾期记录
+end
+bm -> bm
+
+@enduml
