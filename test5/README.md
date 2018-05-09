@@ -113,15 +113,16 @@
 |逾期时间|orderTime|datetime||×|||
 |还书日期|returnTime|datetime||×|||
 |逾期时长|overdueTime|int||×||以天数为单位，默认为0|
+|备注|note|varchar||√|||
 
 
 ## 2.界面设计
 
 ### 2.1 图书借阅界面设计
-![](borrowbook.png)
+![图书借阅界面设计](borrowbook.png)
 
 - 用例图参考：借书用例
-- 类图参考：Reader类、Book类
+- 类图参考：Reader类、Book类、BorrowRecord类
 - 顺序图参考：借书顺序图
 <br/><br/>
 ### 2.2API接口如下：
