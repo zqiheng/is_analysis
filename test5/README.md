@@ -11,7 +11,7 @@
 |ID|managerId|int(12)|主键|×|||
 |管理员名|name|varchar(20)||×|||
 |密码|password|varchar(20)||×|||
-|职位|role|bit||×||true：系统管理员，false：图书管理员|
+|职位|role|bit||×||1：系统管理员，0：图书管理员|
 |电话|tel|int(11)||×||联系电话|
 |照片|photo|varbinary(MAX)||√|||
 
@@ -90,6 +90,31 @@
 |实体ID|entityId|int(10)||×||
 |实体名称|entityName|varchar(255)||×||
 
+### 1.8 馆藏书目（BookCollection）表：
+|项目|字段名|类型与宽度|主键、外键|是否允许为空值|约束|说明|
+|:------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|ID|id|int|主键|×||自增1|
+|ISBN|bookName|varchar(20)||×|||
+|书名|bookName|varchar(40)||×|||
+|语言|language|varchar(20)||×||书籍语言|
+|国家|countries|varchar(20)||×|||
+|种类|kinds|varchar(20)||×||图书种类，如小说、文学、艺术等|
+|种类细分|kindsDetail|varchar(40)||×||种类细分，如古典小说、现在小说、武侠小说等|
+|其它|other|varchar(40)||×|||
+
+### 1.9 逾期记录（OverdueRecorder）表：
+|项目|字段名|类型与宽度|主键、外键|是否允许为空值|约束|说明|
+|:------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|ID|id|int|主键|×||自增1|
+|逾期流水号|overdueId|varchar(40)||×||流水号号为：逾期标志+逾期时间+ISBN+读者Id|
+|ISBN|ISBN|varchar(20)|外键|×|Book.ISBN|外键索引|
+|读者Id|readerId|int(12)|外键|×|Reader.readerId|外键索引|
+|书名|bookName|varchar(40)||×|||
+|逾期时间|orderTime|datetime||×|||
+|还书日期|returnTime|datetime||×|||
+|逾期时长|overdueTime|int||×||以天数为单位，默认为0|
+
+
 ## 2.界面设计
 
 ### 2.1 图书借阅界面设计
@@ -122,7 +147,7 @@
                   "sex": "1",
                   "born": "1996-01-17",
                   "college": "信息科学与工程学院",
-                  "spc": "软件工程",
+                  "spc": "软件工程"
                   }
     }
     </pre>

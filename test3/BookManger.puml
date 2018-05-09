@@ -1,9 +1,25 @@
 @startuml
 
-class 登陆{
-    账号
+class 管理员 {
+    ID
+    管理员名
     密码
-    身份
+    角色
+    电话
+    照片
+    --set和get--
+    ...
+    --
+    End of class
+}
+
+class 图书管理员 {
+    角色
+    --
+    End of class
+}
+class 系统管理员{
+    角色
     --
     End of class
 }
@@ -11,42 +27,32 @@ class 登陆{
 class 读者 {
     账号
     姓名
-    年龄
-    身份证号
-    --
-    - 图书预定
-    - 图书归还
-    - 取消预定
-    + 查看图书
-    + 个人信息修改
-    - 借书记录查询
-    + 个人信用查询
+    密码
+    性别
+    出生日期
+    角色
+    所属学院
+    专业
+    借书数量
+    照片
+    电话
+    --set和get--
+    ...
     --
     End of class
 }
 
-class 图书管理员 {
-    职工号
-    姓名
-    入职时间
-    职位
-    --
-    - 图书预定管理
-    - 借书登记
-    - 还书登记
-    - 图书增、删、改、查
-    + 个人信息修改
-    --
-    End of class
-}
-class 系统管理员{
-    账号
-    姓名
-    --
-    # 系统维护
-    - 账号管理（增、删、改、查）
-    - 权限管理
-    - 公告
+class 馆藏目录{
+    ID
+    ISBN
+    书名
+    语言
+    国家
+    种类
+    种类细分
+    其它
+    --get And set--
+    ...
     --
     End of class
 }
@@ -56,79 +62,107 @@ class 图书{
     出版社
     作者
     价格
-    简介
     馆藏数量
     可借数量
-    内容
-    --
-    End of class
-}
-
-class 馆藏目录{
-    书目
-    备注
+    借出总次数
+    内容简介
+    照片
+    --set和get--
+    ...
     --
     End of class
 }
 
 class 借书记录{
+    流水号
+    ISBN
+    读者ID
+    书名
     借书日期
-    应还日期
     归还日期
-    备注
+    是否续借
+    借书时长
+    是否归还
+    是否逾期
+    逾期时长
+    --set和get--
+    ...
     --
     End of class
 }
 
 class 预定记录{
+    流水号
+    读者ID
+    ISBN
     预定日期
-    备注
+    时长
+    是否取消预定
+    --set和get--
+    ...
     --
     End of class
 }
 
 class 逾期记录{
-    预期时间
+    流水号
+    ISBN
+    读者ID
+    书名
+    逾期时间
+    归还时间
+    逾期时长
     备注
+    --set和get--
+    ...
     --
     End of class
 }
 
-class 还书{
-    还书时间
-    备注
+class 图书操作日志{
+    ID
+    动作
+    细节
+    创建时间
+    实体ID
+    实体名称
+    --set和get--
+    ...
+    --
+    End of class
 }
 
 class 公告{
+    ID
     公告内容
+    开始时间
+    结束时间
     备注
+    --set和get--
+    ...
     --
     End of class
 }
 
-读者 "n"*-->"1"登陆
-图书管理员 "1..10"*---> "1"登陆
-系统管理员 "1,2,3"*--=-> "1"登陆
-
+管理员 <- 系统管理员
+管理员 <- 图书管理员
 
 系统管理员 "1"-- "1..10"图书管理员 :Association
-系统管理员 "1"-- "n"读者 :Association
-系统管理员 "1"*-- "n"公告 :Association
+系统管理员 "1"- "n"读者 :Association
+系统管理员 "1"*- "n"公告 :Association
 
 图书管理员 "1"-- "n"图书 :Association
-图书管理员 "1"-- "n"借书记录 :登记 :Contains
-图书管理员 "1"-- "n"还书 :登记 :Contains
-图书管理员 "1"-- "n"预定记录 :Association
+图书管理员 "1"-- "n"图书操作日志 :Association
 
+馆藏目录 "1"<- "n"图书 :Contains
 
-馆藏目录 "1"*--- "1..n"图书 :Contains
 图书 "1"--  "n"预定记录 :Association
 图书 "1"-- "n"借书记录 :Association
+图书 "1"-- "n" "图书操作日志" :Association
+图书 "1"-- "0..2"逾期记录 :Contains
 
 读者 "1"--"n"预定记录 :Contains
 读者 "1"-- "n"借书记录 :Contains
-读者 "1"-- "n"还书
-
-借书记录 "1"-- "0..1"逾期记录
+读者 "1"-- "0..2"逾期记录 :Contains
 
 @endum

@@ -35,31 +35,22 @@ bm <- bm
 ### 2.1 PlantUML源码
 <pre>
 @startuml
-
 actor 系统管理员 as SM
 participant "：信息记录" as re
 participant "：读者" as read
 participant "：图书管理员" as BM
-participant "： 增加" as save
-participant "：修改" as update
-participant "：删除" as delete
 
 SM <- SM: 1. 验证可操作性（增、删、改、查）
 SM -> re: 2. 读取信息记录
 re <- re: 2.1 验证是否有该信息
 re -> read: 2.2 获取读者信息
-SM -> update: 3. 修改读者信息
-SM <-- update: 返回结果
+SM <-- read: 3. 返回信息
+SM -> SM:4. 修改信息 OR 删除信息
 
 par 【其他类似相同操作】
-SM -> save: 增加读者
-SM -> delete: 删除读者信息
-
-re<- re: 验证是否有改信息
 re -> BM: 获取图书管理员信息
-SM -> update: 修改图书管理员信息
-SM -> save: 增加图书管理员
-SM -> delete: 删除读者信息
+SM <-- BM: 返回信息
+SM -> SM:修改信息 OR 删除信息
 end
 SM -> SM
 @enduml
