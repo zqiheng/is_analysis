@@ -1,0 +1,101 @@
+@startuml
+title 基于GitHub的实验管理平台--类图
+
+class users {
+    <b>user_id</b> （用户ID）
+    name （用户真实姓名）
+    github_username （用户GitHub账号）
+    update_date （用户GitHub账号修改日期）
+    password （用户密码）
+    disable （用户是否禁用）
+    --
+    End of Class
+}
+
+class managers {
+    <b>manager_id</b> (管理员工号)
+    <b>user_id</b> (用户ID)
+    --
+    End of class
+}
+
+class teachers{
+    <b>teacher_id</b> （老师工号）
+    <b>user_id</b> （用户ID）
+    department （老师所属部门）
+    --
+    End of Class
+}
+
+class students{
+    <b>student_id</b> （学号）
+    <b>user_id</b> (用户ID)
+    class （班级）
+    result_sum（成绩汇总）
+    web_sum （网站正确与否汇总）
+    --
+    End of Class
+}
+
+class courses {
+    <b>course_id</b> (课程号)
+    course_name (课程名)
+    date (开课学年)
+    term (开课学期)
+    college (开课学院)
+    credit (学分)
+    --
+    End of Class
+}
+
+class arrangeInfo{
+    <b>arrangeInfo_id</b> (老师任课编号)
+    <b>course_id</b> (课程号)
+    <b>teacher_id</b> (授课老师工号)
+    place (上课地点)
+    num (上课人数)
+    --
+    Enf of Class
+}
+
+class courseInfo{
+    <b>courseInfo_id</b> (学生上课编号)
+    <b>arrangeInfo_id</b> (老师任课编号)
+    <b>student_id</b> (学号)
+    --
+    End of Class
+}
+
+class tests {
+    <b>test_id</b> （实验编号）
+    <b>arrangeInfo_id</b> (老师任课编号)
+    title (实验名称)
+    --
+    End of Class
+}
+
+class grades {
+    <b>student_id</b> （学号）
+    <b>test_id</b> （实验编号）
+    result （分数）
+    memo （评价）
+    update_date （评改日期）
+    --
+    End of Class
+}
+
+
+
+users <|-- managers
+users <|-- students
+users <|-- teachers
+courses "1"--"n" arrangeInfo
+arrangeInfo "1"--"n" courseInfo
+arrangeInfo "1"--"1" teachers
+arrangeInfo "1"--"n" tests
+students "n"--"n" courseInfo
+students "1" -- "n"  grades
+tests "1" -- "n"  grades
+
+
+@enduml

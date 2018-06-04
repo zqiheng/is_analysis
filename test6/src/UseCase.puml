@@ -1,0 +1,38 @@
+@startuml
+title 基于GitHub的实验管理平台--用例图
+
+actor users
+actor managers
+actor teachers
+actor students
+
+users <|-- teachers
+users <|-- students
+users <|-- managers
+
+package 用户用例集 {
+users --up-> (登录)
+users --up-> (登出)
+users --up-> (查看用户信息)
+users --up-> (修改用户信息)
+users --up-> (修改密码)
+}
+
+package 业务用例集 {
+managers ---> (课程录入)
+managers ---> (老师排课)
+managers ---> (学生排课)
+managers ---> (老师列表)
+managers ---> (学生列表)
+
+teachers ---> (试验录入)
+teachers ---> (评定成绩)
+teachers ---> (学生列表)
+teachers ---> (课程列表)
+
+students ---> (查看成绩)
+students ---> (课程列表)
+
+}
+
+@enduml
