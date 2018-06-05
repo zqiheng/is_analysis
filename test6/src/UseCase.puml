@@ -19,20 +19,20 @@ users --up-> (修改密码)
 }
 
 package 业务用例集 {
-managers ---> (课程录入)
 managers ---> (老师排课)
 managers ---> (学生排课)
-managers ---> (老师列表)
+managers ---> (教师列表)
 managers ---> (学生列表)
+managers ---> (课程列表)
 
-teachers ---> (试验录入)
 teachers ---> (评定成绩)
 teachers ---> (学生列表)
 teachers ---> (课程列表)
+teachers ---> (成绩列表)
 
-students ---> (查看成绩)
+students ---> (成绩列表)
 students ---> (课程列表)
-
+students ---> (查看成绩)
 }
 
 @enduml
