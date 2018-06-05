@@ -32,5 +32,17 @@
 
 ## 6.用例及界面详细设计
 
-- ### [“登录”用例](用例/登录.md)，    [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/登录.html)
+- ### [“登录”用例](用例/登录.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/登录.html)
+- ### [“查看用户信息”用例](用例/查看用户信息.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“修改用户信息”用例](用例/修改用户信息.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“修改密码”用例](用例/修改密码.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“登出”用例](用例/登出.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/顶部菜单.html)
+- ### [“课程列表”用例](用例/课程列表.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/课程列表.html)      [界面-学生的课程列表](https://zhangqiheng.github.io/is_analysis/test6/ui/学生的课程列表.html)
+- ### [“老师排课”用例](用例/老师排课.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/老师排课.html)
+- ### [“学生排课”用例](用例/学生排课.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/学生排课.html)
+- ### [“教师列表”用例](用例/教师列表.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/教师列表.html)
+- ### [“学生列表”用例](用例/学生列表.md)，   [界面-老师的学生列表](https://zhangqiheng.github.io/is_analysis/test6/ui/老师的学生列表.html)       [界面-管理员的学生列表](https://zhangqiheng.github.io/is_analysis/test6/ui/管理员的学生列表.html)
+- ### [“成绩列表”用例](用例/成绩列表.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/成绩列表.html)
+- ### [“评定成绩”用例](用例/评定成绩.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/实验成绩评定页面.html)
+- ### [“查看成绩”用例](用例/查看成绩.md)，   [界面](https://zhangqiheng.github.io/is_analysis/test6/ui/实验成绩详情页面.html)
 

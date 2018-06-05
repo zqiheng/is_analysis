@@ -633,8 +633,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:91px;
-  height:22px;
+  width:81px;
+  height:19px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -642,7 +642,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-size:18px;
+  font-size:16px;
   color:#FF0000;
 }
 #u177 {
@@ -650,9 +650,9 @@
   position:absolute;
   left:254px;
   top:249px;
-  width:91px;
-  height:22px;
-  font-size:18px;
+  width:81px;
+  height:19px;
+  font-size:16px;
   color:#FF0000;
 }
 #u177_text {
@@ -660,6 +660,6 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:91px;
+  width:81px;
   white-space:nowrap;
 }
