@@ -1,0 +1,8 @@
+@startuml
+title 基于GitHub的实验管理平台--修改用户信息的流程图
+start
+:填写修改信息;
+:点击修改按钮;
+:修改成功，关闭窗口;
+stop;
+@enduml

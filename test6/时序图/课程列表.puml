@@ -1,0 +1,22 @@
+@startuml
+title 基于GitHub的实验管理平台--课程列表用例的时序图
+actor 用户 as u
+participant Courses as c
+participant ArrangeInfo as a
+participant CourseInfo as cs
+participant Teachers as t
+
+u -> c:查询所有课程信息
+alt 用户是管理员
+    c -->u:返回所有课程的信息
+else 用户是老师
+    c ->a:根据老师id查询自己教授的课程
+    a -->u:返回老师自己教授的课程信息
+else 用户是学生
+    u -> cs: 1.根据学生id查找自己上的所有课程
+    cs -> a: 2.根据arrange_id查找老师排课表
+    a -> t: 3.查询教授该课程的老师信息
+    t -->u: 4.返回课程和老师信息
+end
+
+@enduml

@@ -15,6 +15,7 @@ class users {
 class managers {
     <b>manager_id</b> (管理员工号)
     <b>user_id</b> (用户ID)
+    department （管理员所属部门）
     --
     End of class
 }
@@ -91,7 +92,7 @@ users <|-- students
 users <|-- teachers
 courses "1"--"n" arrangeInfo
 arrangeInfo "1"--"n" courseInfo
-arrangeInfo "1"--"1" teachers
+arrangeInfo "n"--"1" teachers
 arrangeInfo "1"--"n" tests
 students "n"--"n" courseInfo
 students "1" -- "n"  grades

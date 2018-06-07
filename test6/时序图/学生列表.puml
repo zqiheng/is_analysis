@@ -1,0 +1,25 @@
+@startuml
+title 基于GitHub的实验管理平台--学生列表用例的时序图
+actor 用户 as u
+participant Students as s
+participant ArrangeInfo as a
+participant CourseInfo as c
+participant Tests as t
+participant Grades as g
+
+u -> s: 1.查看所有学生列表信息
+alt 用户是管理员
+    s --> u: 2.返回所有学生信息
+
+else 如果用户是老师
+    u -> a: 1.根据老师Id查找对应的所有教授课程
+    a -> c: 2.根据arrange_id查找上课学生表
+    a -> t: 3.根据arrange_id查找对应课程的试验信息
+    c -> s: 4.根据course_id查找该课程所有学生
+    s -> g: 5.根据student_id和test_id查询该学生的成绩
+
+    g --> u:6.返回所有学生信息(课程、试验成绩)
+
+end
+
+@enduml

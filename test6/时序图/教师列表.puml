@@ -1,0 +1,11 @@
+@startuml
+title 基于GitHub的实验管理平台--教师列表用例的时序图
+actor 用户 as user
+participant Users as u
+participant Teachers as t
+
+user -> u: 查看老师信息
+u ->t:获取老师信息
+t ->user:返回信息
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+title 基于GitHub的实验管理平台--查看用户信息的时序图
+actor 用户 as user
+participant Users as u
+participant Managers as m
+participant Teachers as t
+participant Students as s
+
+user -> u: 查看用户信息
+alt user 是管理员
+    u ->m:获取管理员信息
+    m ->user:返回信息
+else user 是老师
+    u ->t:获取老师信息
+    t->user:返回信息
+else user 是学生
+    u ->s:获取学生信息
+    s ->user:返回信息
+end
+@enduml

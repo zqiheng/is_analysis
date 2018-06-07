@@ -1,0 +1,13 @@
+@startuml
+title 基于GitHub的实验管理平台--修改密码的时序图
+actor 用户 as user
+participant Users as u
+database 数据库 as db
+
+user -> u: 1.输入密码和确认密码
+u --> u: 2.密码校验
+u --> user: 3.两次密码输入不一致，重新输入
+u -> db: 4.数据库加密存储
+db ->user: 5.返回信息
+
+@enduml

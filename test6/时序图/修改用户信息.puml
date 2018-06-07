@@ -1,0 +1,12 @@
+@startuml
+title 基于GitHub的实验管理平台--修改用户信息的时序图
+actor 用户 as user
+participant Users as u
+database 数据库 as db
+
+user -> u: 修改用户信息
+u --> u:不规则字符校验
+u -> db:数据库存储
+db ->user:返回信息
+
+@enduml

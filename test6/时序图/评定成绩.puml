@@ -1,0 +1,18 @@
+@startuml
+title 基于GitHub的实验管理平台--评定成绩用例的顺序图
+actor teachers
+
+
+== 查看成绩 ==
+teachers -> students : 1.老师在学生列表点击要评定的学生
+students -> grades :2.获取成绩
+grades -> tests :3.获取实验
+tests --> teachers: 4.每个实验的信息、成绩和评语
+== 评定成绩 ==
+teachers -> grades : 5. 录入并提交每个实验的成绩
+
+database 数据库 as db
+grades -> db: 6.数据库存储信息
+db --> teachers :7.返回操作信息
+
+@enduml

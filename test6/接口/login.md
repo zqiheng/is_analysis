@@ -7,7 +7,7 @@
 
 - API请求地址：接口基本地址/v1/api/login
 
-- 请求方式 ：POST/GET
+- 请求方式 ：POST
 
 - 请求实例：
 

@@ -11,11 +11,11 @@ users <|-- students
 users <|-- managers
 
 package 用户用例集 {
-users --up-> (登录)
-users --up-> (登出)
+users -up-> (登录)
+users -up-> (登出)
 users --up-> (查看用户信息)
-users --up-> (修改用户信息)
-users --up-> (修改密码)
+users -up-> (修改用户信息)
+users -up-> (修改密码)
 }
 
 package 业务用例集 {

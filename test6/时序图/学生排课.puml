@@ -1,0 +1,14 @@
+@startuml
+title 基于GitHub的实验管理平台--学生排课用例的时序图
+
+actor Users as u
+participant CourseInfo as a
+database 数据库 as db
+
+u -> a: 1.管理员选择要排的课程和上课的学生
+a -> db: 2.提交数据库保存
+db -> db: 3.数据库检查该记录是否存在
+db --> u: 4.存在该记录，请重新录入
+db -> u: 5.录入成功，返回True
+
+@enduml

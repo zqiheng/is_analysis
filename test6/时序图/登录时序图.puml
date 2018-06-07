@@ -1,5 +1,5 @@
 @startuml
-
+title 基于GitHub的实验管理平台--登录的时序图
 actor 用户 as user
 participant Login登录页面 as l
 participant Users as u

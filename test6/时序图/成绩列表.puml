@@ -1,0 +1,22 @@
+@startuml
+title 基于GitHub的实验管理平台--成绩列表用例的时序图
+actor 用户 as u
+participant Grades as g
+participant ArrangeInfo as a
+participant Tests as t
+participant Students as s
+
+u -> g:查询成绩信息
+
+alt 用户是学生
+    g ->g:根据学号查询用户的成绩信息
+    g -->u:返回学生自己的成绩信息
+else 用户是老师
+    u -> a: 1.查找课程
+    a -> t: 2.查找试验
+    t -> g: 3.查询成绩
+    g -> s: 4.查询学生信息
+    s --> u: 5.返回老师自己教授的课程的所有学生实验成绩和学生信息
+end
+
+@enduml

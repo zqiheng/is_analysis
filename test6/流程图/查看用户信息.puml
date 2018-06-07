@@ -1,0 +1,13 @@
+@startuml
+title 基于GitHub的实验管理平台--查看用户信息的流程图
+start
+:查看用户信息;
+if(用户名是否登录？) then(是)
+    :显示用户信息;
+else(否)
+    :提示用户登录;
+    :重新登录;
+endif;
+:流程结束;
+stop;
+@enduml
