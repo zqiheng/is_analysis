@@ -10,8 +10,8 @@
 
 - API请求地址：
    - 1.管理员接口基本地址/v1/api/getStudents
-   - 2.老师接口基本地址/v1/api/getStudents?id=?
-   - 3.学生接口基本地址/v1/api/getStudents?id=?
+   - 2.老师接口基本地址/v1/api/getStudents?teacher_id=?
+   - 3.学生接口基本地址/v1/api/getStudents?student_id=?
 
 - 请求方式 ：GET
 
@@ -19,7 +19,8 @@
 
   |参数名称|说明|
   |:--:|:--:|
-  |id|对应表Users.user_id的值|
+  |teacher_id|老师工号|
+  |student_id|学生学号|
 
 - 返回实例：
     - 管理员和老师返回参数实例（返回内容一致，total不一样）
